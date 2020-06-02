@@ -88,16 +88,17 @@ def create_spectogram(track_id, audio_dir):
     return spect.T
 
 
-def plot_spect(track_id, audio_dir):
+def plot_spect(track_id, audio_dir, filename=None):
     spect = create_spectogram(track_id, audio_dir)
-    print(spect.shape)
-    plt.figure(figsize=(10, 4))
+    fig, ax = plt.subplots(figsize=(10,4))
     librosa.display.specshow(spect.T, y_axis='mel', fmax=8000, x_axis='time')
     plt.colorbar(format='%+2.0f dB')
-    plt.show()
+    ax.set_title(f'Mel Spectogram for Track {track_id}')
+    if filename:
+        plt.savefig(filename)
 
 
-def create_array(df):
+def create_array(df, audio_dir, genre_dict):
     genres = []
     X_spect = np.empty((0, 640, 128))
     count = 0
@@ -109,7 +110,7 @@ def create_array(df):
             spect = create_spectogram(track_id, audio_dir)
             spect = spect[:640, :]
             X_spect = np.append(X_spect, [spect], axis=0)
-            genres.append(dict_genres[genre])
+            genres.append(genre_dict[genre])
             if count % 100 == 0:
                 print("Currently processing: ", count)
         except:
@@ -124,3 +125,8 @@ def splitDataFrameIntoSmaller(df, chunkSize = 1600):
     for i in range(numberChunks):
         listOfDf.append(df[i*chunkSize:(i+1)*chunkSize])
     return listOfDf
+
+def unison_shuffled_copies(a, b):
+    assert len(a) == len(b)
+    p = np.random.permutation(len(a))
+    return a[p], b[p]
