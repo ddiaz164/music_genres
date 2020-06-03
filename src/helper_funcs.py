@@ -8,6 +8,8 @@ from os.path import isfile
 import ast
 import librosa
 import librosa.display
+from sklearn.metrics import f1_score, accuracy_score
+from time import time
 
 
 def pca_plot_2D(tracks, features, genre1, genre2, save=False, filename=None):
@@ -131,3 +133,19 @@ def unison_shuffled_copies(a, b):
     assert len(a) == len(b)
     p = np.random.permutation(len(a))
     return a[p], b[p]
+
+    
+def predict_labels(clf, features, target):
+    y_pred = clf.predict(features)
+    return f1_score(target, y_pred, average='micro', pos_label = 1), accuracy_score(target, y_pred)
+
+
+def train_predict(model, X_train, y_train, X_val, y_val, X_test, y_test):
+    print(f"Training a {model.__class__.__name__} using a training set size of {len(X_train)}. . .")
+    model.fit(X_train, y_train)
+    f1, acc = predict_labels(model, X_train, y_train)
+    print(f"Training set F1 score: {f1:.4f}   | Accuracy: {acc:.4f}.")
+    f1, acc = predict_labels(model, X_val, y_val)
+    print(f"Validation set F1 score: {f1:.4f} | Accuracy: {acc:.4f}.")
+    f1, acc = predict_labels(model, X_test, y_test)
+    print(f"Test set F1 score: {f1:.4f}       | Accuracy: {acc:.4f}.")
