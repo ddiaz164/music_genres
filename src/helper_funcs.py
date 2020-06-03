@@ -90,6 +90,17 @@ def create_spectogram(track_id, audio_dir):
     spect = librosa.power_to_db(spect, ref=np.max)
     return spect.T
 
+def genre_specs(track_id, genre, AUDIO_DIR, save=False):
+    filename = get_audio_path(AUDIO_DIR, track_id)
+    y, sr = librosa.load(filename)
+    spect = librosa.feature.melspectrogram(y=y, sr=sr,n_fft=2048, hop_length=1024)
+    spect = librosa.power_to_db(spect, ref=np.max)
+    plt.figure(figsize=(10, 4))
+    librosa.display.specshow(spect, y_axis='mel', fmax=8000, x_axis='time')
+    plt.colorbar(format='%+2.0f dB')
+    plt.title(str(genre))
+    if save:
+        plt.savefig('../images/mel_spec_' + str(genre) + '.png')
 
 def plot_spect(track_id, audio_dir, filename=None):
     spect = create_spectogram(track_id, audio_dir)
@@ -142,10 +153,10 @@ def predict_labels(clf, features, target):
 
 def train_predict(model, X_train, y_train, X_val, y_val, X_test, y_test):
     print(f"Training a {model.__class__.__name__} using a training set size of {len(X_train)}. . .")
-    model.fit(X_train, y_train)
+    #model.fit(X_train, y_train)
     f1, acc = predict_labels(model, X_train, y_train)
-    print(f"Training set F1 score: {f1:.4f}   | Accuracy: {acc:.4f}.")
+    print(f"Training set F1 score:   {f1:.4f}       | Accuracy: {acc:.4f}.")
     f1, acc = predict_labels(model, X_val, y_val)
-    print(f"Validation set F1 score: {f1:.4f} | Accuracy: {acc:.4f}.")
+    print(f"Validation set F1 score: {f1:.4f}       | Accuracy: {acc:.4f}.")
     f1, acc = predict_labels(model, X_test, y_test)
-    print(f"Test set F1 score: {f1:.4f}       | Accuracy: {acc:.4f}.")
+    print(f"Test set F1 score:       {f1:.4f}       | Accuracy: {acc:.4f}.")
