@@ -153,7 +153,7 @@ def predict_labels(clf, features, target):
 
 def train_predict(model, X_train, y_train, X_val, y_val, X_test, y_test):
     print(f"Training a {model.__class__.__name__} using a training set size of {len(X_train)}. . .")
-    #model.fit(X_train, y_train)
+    model.fit(X_train, y_train)
     f1, acc = predict_labels(model, X_train, y_train)
     print(f"Training set F1 score:   {f1:.4f}       | Accuracy: {acc:.4f}.")
     f1, acc = predict_labels(model, X_val, y_val)
