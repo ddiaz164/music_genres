@@ -21,7 +21,7 @@ def pca_plot_2D(tracks, features, genre1, genre2, save=False, filename=None):
     y = tracks.loc[small_df & (one | two), ('track', 'genre_top')]
     y = LabelEncoder().fit_transform(y)
     fig, ax = plt.subplots(figsize=(10,6))
-    ax.scatter(X[:,0], X[:,1], c=y, cmap='summer', alpha = 0.3)
+    ax.scatter(X[:,0], X[:,1], c=y, cmap='winter', alpha = 0.3)
     ax.set_xlabel('Principal Component 1')
     ax.set_ylabel('Principal Component 2')
     ax.set_title(f'PCA 2 components on {genre1} and {genre2}')
@@ -96,7 +96,7 @@ def genre_specs(track_id, genre, AUDIO_DIR, save=False):
     spect = librosa.feature.melspectrogram(y=y, sr=sr,n_fft=2048, hop_length=1024)
     spect = librosa.power_to_db(spect, ref=np.max)
     plt.figure(figsize=(10, 4))
-    librosa.display.specshow(spect, y_axis='mel', fmax=8000, x_axis='time')
+    librosa.display.specshow(spect, y_axis='mel', fmax=8000, x_axis='time', cmap='winter')
     plt.colorbar(format='%+2.0f dB')
     plt.title(str(genre))
     if save:
@@ -105,7 +105,7 @@ def genre_specs(track_id, genre, AUDIO_DIR, save=False):
 def plot_spect(track_id, audio_dir, filename=None):
     spect = create_spectogram(track_id, audio_dir)
     fig, ax = plt.subplots(figsize=(10,4))
-    librosa.display.specshow(spect.T, y_axis='mel', fmax=8000, x_axis='time')
+    librosa.display.specshow(spect.T, y_axis='mel', fmax=8000, x_axis='time', cmap='winter')
     plt.colorbar(format='%+2.0f dB')
     ax.set_title(f'Mel Spectogram for Track {track_id}')
     if filename:
