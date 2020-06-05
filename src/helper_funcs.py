@@ -160,3 +160,33 @@ def train_predict(model, X_train, y_train, X_val, y_val, X_test, y_test):
     print(f"Validation set F1 score: {f1:.4f}       | Accuracy: {acc:.4f}.")
     f1, acc = predict_labels(model, X_test, y_test)
     print(f"Test set F1 score:       {f1:.4f}       | Accuracy: {acc:.4f}.")
+
+def pareto_plot(df, title, genre=None, filename=None):
+    if genre:
+        gen = df[df['True']==genre].copy()
+        gen.set_index('Track_ID', inplace=True)
+        gen.reset_index(inplace=True)
+        x = [1,2,3,4,5,6,7,8]
+        y1 = [gen[gen[col]==genre].shape[0] for col in gen.columns[2:]]
+        y2 = (np.array(y1)/100).cumsum()
+        f = [f'{x:,.0%}' for x in y2]
+    else:
+        df.set_index('Track_ID', inplace=True)
+        df.reset_index(inplace=True)
+        x = [1,2,3,4,5,6,7,8]
+        y1 = [df[df[col]==df['True']].shape[0] for col in df.columns[2:]]
+        y2 = (np.array(y1)/800).cumsum()
+        f = [f'{x:,.2%}' for x in y2]
+    fig, ax = plt.subplots(figsize=(10,6))
+    ax.bar(x, y1, color='blue', alpha=0.5)
+    ax2 = ax.twinx()
+    ax2.plot(x, y2, color='red', marker='o', linestyle='--')
+    ax2.set_yticklabels([])
+    for i in range(8):
+        ax2.annotate(f[i], (x[i]+0.2, y2[i]-0.01), fontweight='heavy')
+    ax.set_xlabel('Predicion')
+    ax.set_ylabel('Number Correct')
+    ax.set_title(f'Prediction Accuracy for {title}')
+    plt.tight_layout()
+    if filename:
+        plt.savefig('../images/' + filename + '.png')
