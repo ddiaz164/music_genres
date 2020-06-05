@@ -184,7 +184,7 @@ def pareto_plot(df, title, genre=None, filename=None):
     ax2.set_yticklabels([])
     for i in range(8):
         ax2.annotate(f[i], (x[i]+0.2, y2[i]-0.01), fontweight='heavy')
-    ax.set_xlabel('Predicion')
+    ax.set_xlabel('Prediction')
     ax.set_ylabel('Number Correct')
     ax.set_title(f'Prediction Accuracy for {title}')
     plt.tight_layout()
