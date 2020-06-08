@@ -24,4 +24,22 @@ Looking at the mel-spectrograms for each genre I could see they had noticeable d
 
 This gave me the idea to use a CNN for image classification. But knowing that there was a time component to the mel-spectrograms I wanted to incorporate an RNN since they excel at understanding sequential data.
 
+## Data Preparation
+To prepare my feature matrix, I converted the mp3 files from the small dataset (8GB) to mel-spectrograms, converted the array from decibels to power, and then log scaled it. For my target values I simply turned them into a categorical matrix by one hot encoding the targets.
+
+## Convolutional Recurrent Neural Network
+My first model was a convolutional recurrent neural network that used 1D CNNs and an LSTM. Each 1D convolution layer extracted features from a small slice of the spectrogram, it applied RELU activation, then batch normalization, and lastly 1D Max Pooling to reduce dimensions and prevent over fitting. This chain of operations was performed 3 times and then its output was fed into an LSTM. The output from the LSTM was passed into a Dense Layer and then the final output layer of the model was a dense layer with Softmax activation assigning probability to the 8 classes. 
+
+![](https://github.com/ddiaz164/music_genres/blob/master/images/CRNN.png)
+
+This model gave me a 52% validation accuracy with its best weights.
+
+## CNN - RNN in Parallel
+The second model I tried was one that used a CNN and RNN in parallel. The convolutional block consisted of a 2D convolution layer followed by a 2D Maxpooling layer, for a total of 5 blocks of convolution max pooling layers before flattening the final output. The recurrent block started with 2D max pooling to reduce image size before sending it to a bidirectional GRU with 64 units. The two resulting outputs were then concatenated before the final dense layer with Softmax activation. 
+
+![](https://github.com/ddiaz164/music_genres/blob/master/images/CNN-RNN.png)
+
+This model did about the same as the first with a 53% validation accuracy using its best weights. 
+
+
 
