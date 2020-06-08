@@ -54,7 +54,7 @@ All in all the accuracy was not very high, but when looking at top 2 or top 3 ac
 
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/pareto_all.png)
 
-This data set is challenging in that some of the genres could contain multiple genres within like say Pop. Additionally since the tracks were 30 second samples, most of what categorized the track as one genre could be left out. There is actually an FMA Genre Recognition challenge and the top leaderboard score has an accuracy of only around 63%.
+This data set is challenging in that some of the genres could contain multiple genres within like say Pop. Additionally since the tracks were 30 second samples, most of what categorized the track as one genre could be left out. There is actually an FMA Genre Recognition challenge and the top leaderboard score only has an accuracy of around 63%.
 
 ### Pop Genre
 Illustrating some of difficulties with the data, Pop songs could be very versatile and therefore the Pop genre performed the worst out of all the genres. 
@@ -63,5 +63,17 @@ Illustrating some of difficulties with the data, Pop songs could be very versati
 
 It takes the model a couple of guesses to get to a good accuracy with the top 3 accuracy being 71% all the way up from 21% on the first guess.
 
+### Human vs. Model
+To test my model’s ability I decided to use a human subject. Our resident, Dylan, kindly volunteered to guess on some of the tracks the model got incorrect. 
+
+![](https://github.com/ddiaz164/music_genres/blob/master/images/human_vs_model.png)
+
+Dylan and the model agreed on one of the tracks, but still was unable to correctly identify the true genre of the tracks. Having labels that not even a human was able to identify would prove hard to predict for any model.
+
+## Future Steps
+Some future steps to take would be to ensemble both of the neural networks since they had different class wise performance. Also using more than just 6400 songs to train on or perhaps even having the model train on the entire song rather than a 30-second excerp might lead to better results.
+
+## References
+![Data](https://github.com/mdeff/fma)
 
 
