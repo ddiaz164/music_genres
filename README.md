@@ -65,15 +65,7 @@ It takes the model a couple of guesses to get to a good accuracy with the top 3 
 ### Human vs. Model
 To test my model’s ability I decided to use a human subject. Our resident, Dylan, kindly volunteered to guess on some of the tracks the model got incorrect. 
 
-<figure>
-    <figcaption>Listen to the T-Rex:</figcaption>
-    <audio
-        controls
-        src="https://github.com/ddiaz164/music_genres/blob/master/data/Track_1.mp3">
-            Your browser does not support the
-            <code>audio</code> element.
-    </audio>
-</figure>
+!audio[ title ](https://github.com/ddiaz164/music_genres/blob/master/data/Track_1.mp3){ size=10 duration=10 cycle=forever }
 
 ![Track 1](https://github.com/ddiaz164/music_genres/blob/master/data/Track_1.mp3)
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/human_vs_model.png)
