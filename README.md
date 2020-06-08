@@ -6,7 +6,7 @@ The data I used for this project was the free music archive. It contains up to 1
 ## Principal Component Analysis
 When first looking at the data I did some PCA down to 2 dimensions in order to plot and get a sense of how these genres would compare to each other. 
 
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/pca_ins_hip.png" width="450" height="350"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/pca_rock_pop.png" width="450" height="350">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/pca_ins_hip.png" width="450" height="300"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/pca_rock_pop.png" width="450" height="300">
 
 With Instrumental and Hip-Hop I could see the separation, but with Rock and Pop it would prove a lot tougher to predict one way or the other.
 
