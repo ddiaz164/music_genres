@@ -44,5 +44,9 @@ The second model I tried was one that used a CNN and RNN in parallel. The convol
 
 This model did about the same as the first with a 53% validation accuracy using its best weights. 
 
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_conf_mat.png" width="450" height="450"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_conf_mat.png" width="450" height="450">
+
+The two models performed very similarly as far as overall accuracy but they did differ in class wise performance. The parallel CNN-RNN model had better performance for Electronic, Instrumental, Pop, and Rock.
+
 
 
