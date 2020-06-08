@@ -65,12 +65,6 @@ It takes the model a couple of guesses to get to a good accuracy with the top 3 
 ### Human vs. Model
 To test my model’s ability I decided to use a human subject. Our resident, Dylan, kindly volunteered to guess on some of the tracks the model got incorrect. 
 
-<audio controls="controls">
-  <source type="audio/mp3" src="https://github.com/ddiaz164/music_genres/blob/master/data/Track_1.mp3"></source>
-  <p>Your browser does not support the audio element.</p>
-</audio>
-
-![Track 1](https://github.com/ddiaz164/music_genres/blob/master/data/Track_1.mp3)
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/human_vs_model.png)
 
 Dylan and the model agreed on one of the tracks, but still was unable to correctly identify the true genre of the tracks. Having labels that not even a human was able to identify would prove hard to predict for any model.
