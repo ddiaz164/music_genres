@@ -79,4 +79,4 @@ Some future steps to take would be to ensemble both of the neural networks since
 
 [CRNN](https://arxiv.org/pdf/1609.04243.pdf)
 
-[CNN RNN Parallel](https://arxiv.org/abs/1712.08370)
+[CNN RNN Parallel](https://arxiv.org/pdf/1712.08370.pdf)
