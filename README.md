@@ -18,3 +18,10 @@ Since I was dealing with audio data I knew I wanted to look at spectrograms as a
 <img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Experimental.png" width="450" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Rock.png" width="450" height="200">
 
 Looking at the mel-spectrograms for each genre I could see they had noticeable differences.
+
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_International.png" width="450" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Instrumental.png" width="450" height="200">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Hip-Hop.png" width="450" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Pop.png" width="450" height="200">
+
+This gave me the idea to use a CNN for image classification. But knowing that there was a time component to the mel-spectrograms I wanted to incorporate an RNN since they excel at understanding sequential data.
+
+
