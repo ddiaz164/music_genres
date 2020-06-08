@@ -34,12 +34,16 @@ My first model was a convolutional recurrent neural network that used 1D CNNs an
 
 This model gave me a 52% validation accuracy with its best weights.
 
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_acc.png" width="450" height="350"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_loss.png" width="450" height="350">
+
 ## CNN - RNN in Parallel
 The second model I tried was one that used a CNN and RNN in parallel. The convolutional block consisted of a 2D convolution layer followed by a 2D Maxpooling layer, for a total of 5 blocks of convolution max pooling layers before flattening the final output. The recurrent block started with 2D max pooling to reduce image size before sending it to a bidirectional GRU with 64 units. The two resulting outputs were then concatenated before the final dense layer with Softmax activation. 
 
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/CNN-RNN.png)
 
 This model did about the same as the first with a 53% validation accuracy using its best weights. 
+
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_acc.png" width="450" height="350"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_loss.png" width="450" height="350">
 
 
 
