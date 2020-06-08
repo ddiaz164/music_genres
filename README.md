@@ -5,6 +5,7 @@ Audio data is quickly becoming an important part of machine learning. From using
 The data I used for this project was the free music archive. It contains up to 106,574 tracks with 161 unbalanced genres, but in the interest of time I decided to work with the small dataset which only has 8 genres and 8,000 30-second tracks evenly distributed for each genre. The genres in this set were Electronic, Experimental, Folk, Hip-Hop, Instrumental, International, Pop, and Rock.
 ## Principal Component Analysis
 When first looking at the data I did some PCA down to 2 dimensions in order to plot and get a sense of how these genres would compare to each other. 
+
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/pca_ins_hip.png)
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/pca_rock_pop.png)
 
