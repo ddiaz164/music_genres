@@ -13,13 +13,13 @@ With Instrumental and Hip-Hop I could see the separation, but with Rock and Pop 
 ## Mel-Spectrogram
 Since I was dealing with audio data I knew I wanted to look at spectrograms as a visual representation of frequencies over time. I used librosa to squash a regular spectrogram, which is the squared magnitude of the short term Fourier transform of the audio signal, into something a human can better understand using mel scale. 
 
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Folk.png" width="450" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Electronic.png" width="450" height="200">
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Experimental.png" width="450" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Rock.png" width="450" height="200">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Folk.png" width="440" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Electronic.png" width="440" height="200">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Experimental.png" width="440" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Rock.png" width="440" height="200">
 
 Looking at the mel-spectrograms for each genre I could see they had noticeable differences.
 
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_International.png" width="450" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Instrumental.png" width="450" height="200">
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Hip-Hop.png" width="450" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Pop.png" width="450" height="200">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_International.png" width="440" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Instrumental.png" width="440" height="200">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Hip-Hop.png" width="440" height="200"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Pop.png" width="440" height="200">
 
 This gave me the idea to use a CNN for image classification. But knowing that there was a time component to the mel-spectrograms I wanted to incorporate an RNN since they excel at understanding sequential data.
 
@@ -30,7 +30,7 @@ To prepare my feature matrix, I converted the mp3 files from the small dataset (
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/CRNN.png)
 My first model was a convolutional recurrent neural network that used 1D CNNs and an LSTM. Each 1D convolution layer extracted features from a small slice of the spectrogram, it applied RELU activation, then batch normalization, and lastly 1D Max Pooling to reduce dimensions and prevent over fitting. This chain of operations was performed 3 times and then its output was fed into an LSTM. The output from the LSTM was passed into a Dense Layer and then the final output layer of the model was a dense layer with Softmax activation assigning probability to the 8 classes. 
 
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_acc.png" width="450" height="350"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_loss.png" width="450" height="350">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_acc.png" width="440" height="350"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_loss.png" width="440" height="350">
 
 This model gave me a 52% validation accuracy with its best weights.
 
@@ -39,12 +39,12 @@ This model gave me a 52% validation accuracy with its best weights.
 
 The second model I tried was one that used a CNN and RNN in parallel. The convolutional block consisted of a 2D convolution layer followed by a 2D Maxpooling layer, for a total of 5 blocks of convolution max pooling layers before flattening the final output. The recurrent block started with 2D max pooling to reduce image size before sending it to a bidirectional GRU with 64 units. The two resulting outputs were then concatenated before the final dense layer with Softmax activation. 
 
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_acc.png" width="450" height="350"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_loss.png" width="450" height="350">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_acc.png" width="440" height="350"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_loss.png" width="440" height="350">
 
 This model did about the same as the first with a 53% validation accuracy using its best weights. 
 
 ## Model Comparison
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_conf_mat.png" width="450" height="400"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_conf_mat.png" width="450" height="400">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_conf_mat.png" width="440" height="400"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_conf_mat.png" width="440" height="400">
 
 The two models performed very similarly as far as overall accuracy but they did differ in class wise performance. The parallel CNN-RNN model had better performance for Electronic, Instrumental, Pop, and Rock.
 
