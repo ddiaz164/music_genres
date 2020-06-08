@@ -14,6 +14,6 @@ With Instrumental and Hip-Hop I could see the separation, but with Rock and Pop 
 ## Mel-Spectrogram
 Since I was dealing with audio data I knew I wanted to look at spectrograms as a visual representation of frequencies over time. I used librosa to squash a regular spectrogram, which is the squared magnitude of the short term Fourier transform of the audio signal, into something a human can better understand using mel scale. 
 
-<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Folk.png" width="400" height="300"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Electronic.png" width="400" height="300">
+<img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Folk.png" width="500" height="300"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/mel_spec_Electronic.png" width="500" height="300">
 
 Looking at the mel-spectrograms for each genre I could see they had noticeable differences.
