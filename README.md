@@ -44,9 +44,24 @@ The second model I tried was one that used a CNN and RNN in parallel. The convol
 
 This model did about the same as the first with a 53% validation accuracy using its best weights. 
 
+## Model Comparison
 <img src="https://github.com/ddiaz164/music_genres/blob/master/images/crnn_conf_mat.png" width="450" height="400"><img src="https://github.com/ddiaz164/music_genres/blob/master/images/cnn_rnn_conf_mat.png" width="450" height="400">
 
 The two models performed very similarly as far as overall accuracy but they did differ in class wise performance. The parallel CNN-RNN model had better performance for Electronic, Instrumental, Pop, and Rock.
+
+### Accuracy
+All in all the accuracy was not very high, but when looking at top 2 or top 3 accuracy the results look much better with almost 80% for top 3 accuracy. 
+
+![](https://github.com/ddiaz164/music_genres/blob/master/images/pareto_all.png)
+
+This data set is challenging in that some of the genres could contain multiple genres within like say Pop. Additionally since the tracks were 30 second samples, most of what categorized the track as one genre could be left out. There is actually an FMA Genre Recognition challenge and the top leaderboard score has an accuracy of only around 63%.
+
+### Pop Genre
+Illustrating some of difficulties with the data, Pop songs could be very versatile and therefore the Pop genre performed the worst out of all the genres. 
+
+![](https://github.com/ddiaz164/music_genres/blob/master/images/pop_pareto.png)
+
+It takes the model a couple of guesses to get to a good accuracy with the top 3 accuracy being 71% all the way up from 21% on the first guess.
 
 
 
