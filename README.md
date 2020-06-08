@@ -74,7 +74,10 @@ Dylan and the model agreed on one of the tracks, but still was unable to correct
 Some future steps to take would be to ensemble both of the neural networks since they had different class wise performance. Also using more than just 6400 songs to train on or perhaps even having the model train on the entire song rather than a 30-second excerp might lead to better results.
 
 ## References
-![Data](https://github.com/mdeff/fma)
-![Mel-Spectrogram](https://medium.com/@priya.dwivedi)
-![CRNN](https://arxiv.org/pdf/1609.04243.pdf)
-![CNN RNN Parallel](https://arxiv.org/abs/1712.08370)
+[Data](https://github.com/mdeff/fma)
+
+[Mel-Spectrogram](https://medium.com/@priya.dwivedi)
+
+[CRNN](https://arxiv.org/pdf/1609.04243.pdf)
+
+[CNN RNN Parallel](https://arxiv.org/abs/1712.08370)
