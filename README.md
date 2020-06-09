@@ -1,6 +1,6 @@
 ![](https://uidesign.gbtcdn.com/gb_blog/2776/What-is-audio-format-and-the-main-types-of-it-Z01.jpg)
 # Audio Classification: Predicting Song Genres
-Audio data is quickly becoming an important part of machine learning. From using audio to recommend songs for radio channels, all the way to interacting with virtual assistants like Alexa or Siri and helping self-driving cars hear their surroundings rather than just seeing them. I wanted to explore audio files and see if I could find patterns within the data that I could use in order to build a model.
+Audio data is quickly becoming an important part of machine learning. We’re using it to interact with virtual assistants like Alexa or Siri and helping self-driving cars hear their surroundings rather than just seeing them.  Music has been a part of my life ever since I started playing my first instrument when I was 4 years old so I really wanted to use a neural network and see if it could learn to distinguish different types of music.
 ## Data Source
 The data I used for this project was the free music archive. It contains up to 106,574 tracks with 161 unbalanced genres, but in the interest of time I decided to work with the small dataset which only has 8 genres and 8,000 30-second tracks evenly distributed for each genre. The genres in this set were Electronic, Experimental, Folk, Hip-Hop, Instrumental, International, Pop, and Rock.
 ## Principal Component Analysis
@@ -63,7 +63,7 @@ Illustrating some of difficulties with the data, Pop songs could be very versati
 It takes the model a couple of guesses to get to a good accuracy with the top 3 accuracy being 71% all the way up from 21% on the first guess.
 
 ### Human vs. Model
-To test my model’s ability I decided to use a human subject. Our resident, Dylan, kindly volunteered to guess on some of the tracks the model got incorrect. 
+To test my model’s ability I decided to use a human subject. Our resident Dylan, who is a trained audio engineer, kindly volunteered to guess on some of the tracks the model got incorrect.
 
 ![](https://github.com/ddiaz164/music_genres/blob/master/images/human_vs_model.png)
 
