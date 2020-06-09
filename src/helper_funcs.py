@@ -181,6 +181,7 @@ def pareto_plot(df, title, genre=None, filename=None):
     ax.bar(x, y1, color='blue', alpha=0.5)
     ax2 = ax.twinx()
     ax2.plot(x, y2, color='red', marker='o', linestyle='--')
+    ax2.set_ylim(10,100)
     ax2.set_yticklabels([])
     for i in range(8):
         ax2.annotate(f[i], (x[i]+0.2, y2[i]-0.01), fontweight='heavy')
